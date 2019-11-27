@@ -1,4 +1,9 @@
 apply plugin: 'com.android.application'
+apply plugin: OrientationPlugin
+testSet {
+    dontSetActivityNames = ['com.yc.uniformsetorientationplugin.MainActivity']
+    screenOrientation "portrait"
+}
 
 android {
     compileSdkVersion 29
@@ -7,7 +12,7 @@ android {
         applicationId "com.yc.uniformsetorientationplugin"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
+        versionCode 2
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -18,7 +23,12 @@ android {
         }
     }
 }
-
+//android.applicationVariants.all { variant ->
+//    variant.outputs.all { output ->
+//        output.processManifest.doLast {
+//            println('1111111'+output
+//            )
+//        }}}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
